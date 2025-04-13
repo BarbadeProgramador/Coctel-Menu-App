@@ -18,8 +18,19 @@ class CoctelController extends Controller
     {
         $uri = Http::get($this->urlApi . 'search.php?f=a');
 
+        $ingredientes = [];
+
         // Obtener los datos JSON de la respuesta
-        $response = $uri->json();  
+        $response = $uri->json();
+
+        $drinks = array_map(function($drink) {
+            return array_filter($drink, function($value) {
+                return !is_null($value);
+            });
+        }, $response['drinks']);
+
+
+      
         return view('dashboard', compact('response'));
     }
 

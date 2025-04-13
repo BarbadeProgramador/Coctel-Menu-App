@@ -5,25 +5,18 @@
         </h2>
     </x-slot>
 
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 text-gray-900">
-                    {{ __("You're logged in!") }}
+    <div class="py-8 bg-yellow-500">
+        <div class="flex bg-pink-200">
+            <div class="bg-slate-300 max-w-7xl overflow-hidden shadow-sm sm:rounded-lg">
+                <h2 class="">Opciones</h2>
+                <div class="bg-lime-500">
+                    <button onclick="cargarVista('tuseccion')">Tu sección</button>
+                    <button onclick="cargarVista('bebidas')">Agregar Bebidas</button>
                 </div>
-                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                @foreach($response['drinks'] as $data)
-                <x-card-coctel
-                    nombre="{{ $data['strDrink'] }}"
-                    imagen="{{ $data['strDrinkThumb'] }}"
-                    base="Tequila"
-                    ingredientes="Tequila, Triple Sec, Jugo de limón"
-                    alcohol="30"
-                    categoria="Clásico"
-                />  
-                @endforeach
-                </div>
+            </div>
+
+            <div id="contenido-principal" class="max-w-7xl mx-auto sm:px-6 lg:px-8 bg-white overflow-hidden shadow-sm sm:rounded-lg">
+                <!-- Aquí se cargará el contenido dinámicamente -->
             </div>
         </div>
     </div>
-</x-app-layout>
