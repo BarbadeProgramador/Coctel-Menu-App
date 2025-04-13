@@ -11,6 +11,18 @@
                 <div class="p-6 text-gray-900">
                     {{ __("You're logged in!") }}
                 </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                @foreach($response['drinks'] as $data)
+                <x-card-coctel
+                    nombre="{{ $data['strDrink'] }}"
+                    imagen="{{ $data['strDrinkThumb'] }}"
+                    base="Tequila"
+                    ingredientes="Tequila, Triple Sec, Jugo de limón"
+                    alcohol="30"
+                    categoria="Clásico"
+                />  
+                @endforeach
+                </div>
             </div>
         </div>
     </div>
