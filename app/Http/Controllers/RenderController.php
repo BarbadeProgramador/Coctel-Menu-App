@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Controllers\Api\CoctelController;
 use App\Services\CoctelService;
+use App\Models\Coctel;
+use App\Models\Ingredientes;
 
 class RenderController extends Controller
 {
@@ -18,23 +19,42 @@ class RenderController extends Controller
 
     // Function route index view cards coctels From DB 
     public function index(){
+        // $cocteles = Coctel::with('ingredientes')->get();
+        // dd($cocteles);
         return view('dashboard');
     }
- // public fuction update(){
-
-    // }
 
 
-    // public fuction delete(){
-
-    // }
+    //RENDER SECTION OPTION 1 O 2 
     public function renderData(Request $request)
     {
         $section = $request->input('section');
     
         switch ($section) {
             case 'seccion1':
-                $html = '<p>Sección 1 personal</p>';
+                $cocteles = Coctel::with('ingredientes')->get();
+                $html = '';
+            
+                foreach ($cocteles as $coctel) {
+                    // Concatenar la tarjeta del cóctel
+                    $ingredientesHtml = '';
+                    foreach ($coctel->ingredientes as $ingrediente) {
+                        $ingredientesHtml .= $ingrediente->nombre . ', ';
+                    }
+            
+                    $html .= view('components.card-content', [
+                        'id' => $coctel->id,
+                        'nombre' => $coctel->nombre,
+                        'imagen' => $coctel->img,
+                        'precio' => $coctel->precio,
+                        'bebida' => $coctel->bebida,
+                        'ingredientes' => $ingredientesHtml,
+                        'tipo' => $coctel->tipo,
+                    ])->render();
+                }
+            
+                
+
                 break;
     
             case 'seccion2':
@@ -43,7 +63,7 @@ class RenderController extends Controller
                 foreach ($cocteles as $coctel) {
                     $ingredientes = []; 
     
-                    // Iteracion de ingredientes de cocteles para limpiar los datos vacios
+                    
                     foreach ($coctel as $key => $ingredient) {
                         if (strpos($key, 'strIngredient') === 0 && $ingredient !== null && $ingredient !== '') {
                             $ingredientes[] = $ingredient;
@@ -73,9 +93,9 @@ class RenderController extends Controller
     
     
 
-    public function cleanData(){
+    // public function cleanData(){
 
-    }
+    // }
 
     
 }

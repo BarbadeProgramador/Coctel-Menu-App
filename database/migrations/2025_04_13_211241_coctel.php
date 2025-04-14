@@ -14,8 +14,9 @@ return new class extends Migration
         Schema::create('coctel', function (Blueprint $table) {
             $table->id();
             $table->string('nombre');
-            $table->unsignedBigInteger('bebida');
+            $table->string('bebida');
             $table->string('tipo');
+            $table->string('img');
             $table->decimal('precio', 8, 2);
             $table->timestamps();
         });

@@ -35,7 +35,7 @@
                     Tu Sección
                   </button>
                   <button class="border-b-2 border-gray-300 text-gray-700 font-medium py-2 hover:border-green-600 hover:text-green-600 transition duration-300 menu-btn"  data-section="seccion2">
-                    Agregar Bebidas
+                    Buscar Bebidas
                   </button>
                 </div>
             </div>
@@ -45,7 +45,7 @@
             
 
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8  bg-white overflow-hidden shadow-sm sm:rounded-lg ">
-                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4" id="section-content">
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 bg-orange-700" id="section-content">
                     <!-- JQUERY ADD SECTION  -->
                 </div>
             </div>        

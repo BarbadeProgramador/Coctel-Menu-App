@@ -10,7 +10,7 @@ class Coctel extends Model
 
     protected $table = 'coctel';
     
-    protected $fillable = ['nombre', 'bebida', 'tipo', 'precio'];
+    protected $fillable = ['img','nombre', 'bebida', 'tipo', 'precio'];
 
 
     public function ingredientes (): BelongsToMany
