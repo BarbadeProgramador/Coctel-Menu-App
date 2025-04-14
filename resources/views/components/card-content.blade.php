@@ -8,9 +8,9 @@
     'tipo'
 ])
 
-<div class="relative max-w-sm rounded-xl overflow-hidden shadow-lg border border-gray-200 bg-white" id="coctel-{{ $id }}">
 
-    {{-- Botón de eliminar (ícono X ampliado) --}}
+<div id="coctel-{{ $id }}" class="relative max-w-sm h-96 flex flex-col rounded-xl overflow-hidden shadow-lg border border-gray-200 bg-white transition-transform duration-300 hover:scale-105">
+    {{-- Botón de eliminar --}}
     <button 
         class="absolute top-2 right-2 text-red-500 hover:text-red-700"
         onclick="eliminarCoctel({{ $id }})"
@@ -25,33 +25,33 @@
     <img class="w-full h-48 object-cover" src="{{ $imagen }}" alt="{{ $nombre }}">
 
     {{-- Contenido de la tarjeta --}}
-    <div class="p-4">
-        <div class="flex justify-between items-center">
-            <h2 class="text-lg font-bold text-gray-900">{{ $nombre }}</h2>
-            <span class="text-green-600 font-semibold">${{ number_format($precio, 2, ',', '.') }}</span>
+    <div class="p-4 flex-1 flex flex-col justify-between">
+        <div>
+            <div class="flex justify-between items-center">
+                <h2 class="text-lg font-bold text-gray-900">{{ $nombre }}</h2>
+                <span class="text-green-600 font-semibold">${{ number_format($precio, 2, ',', '.') }}</span>
+            </div>
+
+            <p class="text-sm text-gray-600 mt-1">
+                <span class="font-medium text-pink-600">Bebida base:</span> {{ $bebida }}
+            </p>
+
+            <p class="text-sm mt-2 font-semibold text-gray-700">Ingredientes:</p>
+            <p class="text-sm text-gray-400">{{ $ingredientes }}</p>
         </div>
-
-        <p class="text-sm text-gray-600 mt-1">
-            <span class="font-medium text-pink-600">Bebida base:</span> {{ $bebida }}
-        </p>
-
-        <p class="text-sm mt-2 font-semibold text-gray-700">Ingredientes:</p>
-        <p class="text-sm text-gray-400">{{ $ingredientes }}</p>
     </div>
 
     {{-- Tipo y botón de actualizar --}}
-    <div class="flex justify-between items-center mt-auto bg-slate-50 px-4 py-2">
-        <span class="text-xs border px-2 py-1 rounded-full text-gray-700 border-gray-300">{{ $tipo }}</span>
+    <div class="flex justify-between items-center bg-slate-50 px-4 py-2 border-t border-gray-200">
+        <span class="text-xs font-medium text-gray-700 bg-gray-100 px-3 py-1 rounded-full">{{ $tipo }}</span>
 
         <form action="{{ route('confirmacion.edit', $id) }}" method="GET">
-        <button 
-            type="submit"
-            class="text-sm text-blue-600 hover:underline font-medium"
-        >
-        Actualizar
-    </button>
-</form>
-
-        
+            <button 
+                type="submit"
+                class="text-sm text-blue-600 hover:underline font-medium"
+            >
+                Actualizar
+            </button>
+        </form>
     </div>
 </div>

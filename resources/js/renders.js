@@ -1,51 +1,76 @@
 import $ from 'jquery';
 
-//DEFAULT
 $(function() {
-    // Realizar la solicitud AJAX para la sección predeterminada
+  // Función para mostrar el spinner
+  function mostrarSpinner() {
+    $('#spinner').removeClass('hidden');
+  }
+
+  // Función para ocultar el spinner
+  function ocultarSpinner() {
+    $('#spinner').addClass('hidden');
+  }
+
+  // Solicitud AJAX para la sección predeterminada
+  $.ajax({
+    url: '/dashboard/section',
+    method: 'GET',
+    data: { section: 'seccion1' },
+    beforeSend: function() {
+      mostrarSpinner();
+    },
+    success: function(response) {
+      $('#section-content').html(response.html);
+      $('.menu-btn').removeClass('bg-blue-300 text-white border-b-4 border-blue-500 text-gray-700');
+      $('.menu-btn[data-section="seccion1"]').removeClass('text-gray-700').addClass('bg-green-300 border-b-4 border-green-500 text-black');
+    },
+    error: function() {
+      $('#section-content').html('<p>Hubo un error al cargar los datos.</p>');
+    },
+    complete: function() {
+      ocultarSpinner();
+    }
+  });
+
+  // Manejo de clics en los botones del menú
+  $('.menu-btn').on('click', function() {
+    const section = $(this).data('section');
+    const $button = $(this);
+
+    // Restablecer el estilo de todos los botones
+    $('.menu-btn').removeClass('bg-green-300 border-b-4 border-green-500 text-black bg-blue-300 text-white border-b-4 border-blue-500').addClass('text-gray-700');
+    
+    // Aplicar estilo al botón seleccionado
+    if ($button.data('section') === 'seccion1') {
+      $button.removeClass('text-gray-700').addClass('bg-green-300 border-b-4 border-green-500 text-black');
+    } else if($button.data('section') === 'seccion2'){
+      $button.removeClass('text-gray-700').addClass('bg-green-300 border-b-4 border-red-500 text-black');
+    }
+
+    if (section === 'seccion2') {
+      $('.section-count').removeClass('hidden');
+      $('.form-excel').addClass('hidden');
+    } else {
+      $('.form-excel').removeClass('hidden');
+      $('.section-count').addClass('hidden');
+    }
+
     $.ajax({
-        url: '/dashboard/section',
-        method: 'GET',
-        data: { section: 'seccion1' },
-        success: function(response) {
-            // Se actualiza el contenido con el HTML recibido del controlador
-            $('#section-content').html(response.html);
-            
-            // Cambiar el estilo del botón seleccionado
-            $('.menu-btn').removeClass('bg-blue-600 text-white').addClass('text-gray-700');
-            $('.menu-btn[data-section="seccion1"]').removeClass('text-gray-700').addClass('bg-blue-600 text-white');
-        },
-        error: function() {
-            $('#section-content').html('<p>Hubo un error al cargar los datos.</p>');
-        }
+      url: '/dashboard/section',
+      method: 'GET',
+      data: { section: section },
+      beforeSend: function() {
+        mostrarSpinner();
+      },
+      success: function(response) {
+        $('#section-content').html(response.html);
+      },
+      error: function() {
+        $('#section-content').html('<p>Hubo un error al cargar los datos.</p>');
+      },
+      complete: function() {
+        ocultarSpinner();
+      }
     });
-});
-
-
-
-
-$(function() {
-    // Al hacer clic en un botón del menú
-    $('.menu-btn').on('click', function() {
-        const section = $(this).data('section');
-        const $button = $(this);
-
-        // Cambiar el estilo del botón seleccionado
-        $('.menu-btn').removeClass('bg-blue-600 text-white').addClass('text-gray-700');
-        $button.removeClass('text-gray-700').addClass('bg-blue-600 text-white');
-
-        // Realizar la solicitud AJAX
-        $.ajax({
-            url: '/dashboard/section',
-            method: 'GET',
-            data: { section: section },
-            success: function(response) {
-                // Actualizar el contenido con el HTML recibido del controlador
-                $('#section-content').html(response.html);
-            },
-            error: function() {
-                $('#section-content').html('<p>Hubo un error al cargar los datos.</p>');
-            }
-        });
-    });
+  });
 });

@@ -3,6 +3,7 @@
     use App\Http\Controllers\ProfileController;
     use App\Http\Controllers\CoctelController;
     use App\Http\Controllers\RenderController;
+    use App\Http\Controllers\PdfController;
     use Illuminate\Support\Facades\Route;
 
     Route::get('/', function () {
@@ -23,6 +24,9 @@
 
         Route::get('/confirmacion/edit/{id}', [CoctelController::class, 'edit'])->name('confirmacion.edit');
         Route::put('/confirmacion/update/{id}', [CoctelController::class, 'update'])->name('confirmacion.update');
+
+        // DESCARGA PDF 
+        Route::get('/descargar-pdf', [PdfController::class, 'descargarPdf'])->name('download.pdf');
     });
 
     // SECCION DE PERFIL

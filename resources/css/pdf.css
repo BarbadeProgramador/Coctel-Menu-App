@@ -1,0 +1,33 @@
+/* Asegúrate de mantener un diseño básico, sin usar Grid, Flex, etc. */
+body {
+    font-family: Arial, sans-serif;
+    font-size: 12pt;
+    background-color: white;
+    margin: 0;
+    padding: 0;
+}
+
+h1, h3 {
+    color: #333;
+}
+
+.coctel-card {
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.coctel-card img {
+    width: 100%;
+    height: auto;
+}
+
+.coctel-card .name {
+    font-weight: bold;
+    font-size: 16pt;
+}
+
+.coctel-card .info {
+    font-size: 12pt;
+    color: #555;
+}
