@@ -38,8 +38,7 @@ Este proyecto utiliza el consumo de una API pública para listar cócteles y beb
 
 ## Idea Detrás del Proyecto
 
-El objetivo principal es ofrecer una solución completa para gestionar menús y cartas de cócteles, brindando una interfaz amigable tanto en dispositivos de escritorio como móviles. Además, permite a los usuarios gestionar y registrar bebidas de manera dinámica, facilitando la administración de una carta de cócteles en entornos reales o de prueba.
-
+El objetivo principal que tuve en mente fue presentar un software con un caso de uso real, un software que podria escalarse y venderse como un producto.
 ---
 
 ## Instalación
