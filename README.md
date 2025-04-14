@@ -34,12 +34,12 @@ Un proyecto que consume una API pública para listar cócteles y otras bebidas a
 
 Este proyecto utiliza el consumo de una API pública para listar cócteles y bebidas alcohólicas. Implementa distintas operaciones CRUD en el backend y se ha optimizado el frontend para lograr una estructura de componentes modular y escalable. El proyecto es ideal para aprender sobre integración de APIs, administración de datos y desarrollo responsivo con Laravel y Tailwind CSS.
 
----
+
 
 ## Idea Detrás del Proyecto
 
 El objetivo principal que tuve en mente fue presentar un software con un caso de uso real, un software que podria escalarse y venderse como un producto.
----
+
 
 ## Instalación
 
