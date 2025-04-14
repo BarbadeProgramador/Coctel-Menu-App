@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Api\CoctelController;
 use App\Services\CoctelService;
 
-class CoctelOperationsController extends Controller
+class RenderController extends Controller
 {
 
     protected $coctelService;
@@ -41,8 +41,9 @@ class CoctelOperationsController extends Controller
                 $cocteles = $this->coctelService->getAll();
                 $html = '';
                 foreach ($cocteles as $coctel) {
-                    $ingredientes = []; // Reiniciar ingredientes por cada cóctel
+                    $ingredientes = []; 
     
+                    // Iteracion de ingredientes de cocteles para limpiar los datos vacios
                     foreach ($coctel as $key => $ingredient) {
                         if (strpos($key, 'strIngredient') === 0 && $ingredient !== null && $ingredient !== '') {
                             $ingredientes[] = $ingredient;

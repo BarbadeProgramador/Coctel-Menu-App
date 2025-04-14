@@ -33,8 +33,15 @@
      <div class="flex justify-between items-center mt-auto bg-slate-50 ">
                 <span class="text-xs border px-2 py-1 rounded-full text-gray-700 border-gray-300">{{ $categoria }}</span>
 
-                <button class="btn-agregar text-xs font-semibold px-3 py-1 border border-gray-300 rounded-full text-gray-700 hover:bg-gray-100 transition" >
-                    Agregar
+                <button class="btn-agregar seleccionar-btn text-xs font-semibold px-3 py-1 border border-gray-300 rounded-full text-gray-700 hover:bg-gray-100 transition"
+                
+                data-nombre="{{ $nombre }}"
+                data-imagen="{{ $imagen }}"
+                data-base="{{ $base }}"
+                data-ingredientes="{{ $ingredientes }}"
+                data-alcohol="{{ $alcohol }}"
+                data-categoria="{{ $categoria }}" >
+                ➕Agregar
                 </button>
     </div>
 
