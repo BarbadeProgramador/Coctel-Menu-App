@@ -26,20 +26,6 @@
 
             <!-- Page list selection user  -->
 
-            <div class="max-w-7xl mx-auto sm:px-6 lg:px-8  bg-white overflow-hidden shadow-sm sm:rounded-lg" >
-                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-
-                        <x-card-coctel
-                            nombre="hola"
-                            imagen="hola"
-                            base="hola"
-                            ingredientes="hola"
-                            alcohol="hola"
-                            categoria="hola"
-                        />  
-                </div>
-            </div>
-
 
 
 

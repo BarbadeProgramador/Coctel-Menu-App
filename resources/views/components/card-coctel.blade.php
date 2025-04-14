@@ -1,7 +1,16 @@
+@props([
+    'nombre',
+    'imagen',
+    'base',
+    'ingredientes',
+    'alcohol',
+    'categoria'
+])
+
 
 <div class="max-w-sm rounded-xl overflow-hidden shadow-lg border border-gray-200 bg-white">
     {{-- Imagen de la bebida --}}
-    <img class="w-full h-48 object-cover" src="{{ $imagen }}" alt="{{ $nombre }}">
+    <img class="w-full h-48 object-cover" src="{{$imagen}}" alt="{{ $nombre }}">
 
     {{-- Contenido de la tarjeta --}}
     <div class="p-4">

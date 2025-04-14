@@ -11,7 +11,8 @@ Route::get('/', function () {
 
 
 Route::middleware('auth')->group(function () {
-    Route::get('/dashboard',[CoctelOperationsController::class, 'index'])->name('dashboard');
+    Route::get('/dashboard',[CoctelOperationsController::class, 'index'])->name('coctel.index');
+    Route::get('/dashboard/section',[CoctelOperationsController::class, 'renderData' ])->name('render.data');
 });
 // Route::get('/dashboard',[CoctelController::class, 'getAll'])->name('dashboard');
 
