@@ -1,3 +1,4 @@
+
 <div class="max-w-sm rounded-xl overflow-hidden shadow-lg border border-gray-200 bg-white">
     {{-- Imagen de la bebida --}}
     <img class="w-full h-48 object-cover" src="{{ $imagen }}" alt="{{ $nombre }}">
@@ -15,7 +16,7 @@
 
         <p class="text-sm mt-2 font-semibold text-gray-700">Ingredientes:</p>
         <p class="text-sm text-gray-400">{{ $ingredientes }}</p>
-
+    
         
 
     </div>
@@ -23,9 +24,9 @@
      <div class="flex justify-between items-center mt-auto bg-slate-50 ">
                 <span class="text-xs border px-2 py-1 rounded-full text-gray-700 border-gray-300">{{ $categoria }}</span>
 
-                <!-- Botón de Agregar -->
-                <button class="btn-agregar text-xs font-semibold px-3 py-1 border border-gray-300 rounded-full text-gray-700 hover:bg-gray-100 transition">
+                <button class="btn-agregar text-xs font-semibold px-3 py-1 border border-gray-300 rounded-full text-gray-700 hover:bg-gray-100 transition" >
                     Agregar
                 </button>
-            </div>
+    </div>
+
 </div>
