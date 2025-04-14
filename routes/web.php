@@ -9,20 +9,18 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
+//SECCION RENDER JQUERY - LARAVEL COMPONENT
 Route::middleware('auth')->group(function () {
     Route::get('/dashboard',[RenderController::class, 'index'])->name('coctel.index');
     Route::get('/dashboard/section',[RenderController::class, 'renderData' ])->name('render.data');
 });
 
+//SECCION OPERACIONES CRUD 
 Route::middleware('auth')->group(function(){
-    Route::get('/confirmacion',[CoctelController::class , 'index'])->name('confirmacion.index');
+    
+    Route::post('/confirmacion',[CoctelController::class , 'index'])->name('confirmacion.index');
 });
-// Route::get('/dashboard',[CoctelController::class, 'getAll'])->name('dashboard');
 
-// // Route::get('/dashboard', function () {
-// //     return view('dashboard');
-// // }
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

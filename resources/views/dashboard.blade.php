@@ -4,11 +4,15 @@
         <div class="bg-orange-300">
             
             <div class="flex items-center space-x-4 my-4">
-                <span class="font-semibold">Seleccionadas: <span id="contador" class="text-pink-600">0</span></span>
-                <button id="registrar" class="bg-pink-600 text-white px-4 py-2 rounded hover:bg-pink-700 transition">Registrar bebidas</button>
+                <form id="formulario-registro" method="POST" action="{{ route('confirmacion.index') }}">
+                    @csrf
+                    <input type="hidden" name="seleccionadas" id="seleccionadas">
+                    <span class="font-semibold">Seleccionadas: <span id="contador" class="text-pink-600">0</span></span>
+                    <button type="submit" class="bg-pink-600 text-white px-4 py-2 rounded hover:bg-pink-700 transition" id="registrar">Registrar bebidas</button>
+                </form>    
             </div>
 
-            <input type="hidden" name="seleccionadas" id="seleccionadas">
+            
         </div>
         
     </x-slot>

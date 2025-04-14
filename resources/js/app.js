@@ -1,9 +1,9 @@
 import $ from 'jquery';
 import Alpine from 'alpinejs';
 import './bootstrap';
-import './buttonGuardado';
+import './renders';
 import './agregarCoctel'
-
+import './confirmationCoctel'
 
 window.$ = window.jQuery = $;
 window.Alpine = Alpine;
