@@ -95,7 +95,4 @@ Accede al proyecto en tu navegador en [http://localhost:8000](http://localhost:8
 
 ---
 
-## Notas Adicionales
 
-- **Documentación de Laravel:** [https://laravel.com/docs](https://laravel.com/docs)
-- **Contribuciones:** Las contribuciones son bienvenidas.
