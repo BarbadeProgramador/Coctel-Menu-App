@@ -5,25 +5,27 @@ Un proyecto que consume una API pública para listar cócteles y otras bebidas a
 ---
 
 ## Vista Previa
-
-<p align="center">
-  <h4>Escritorio</h4>
-  <img src="https://github.com/user-attachments/assets/14d88eab-c7bf-4365-9c98-70e00566c588" alt="Desktop App" width="300">
-</p>
-
-<p align="center">
-  <h4>Móvil - Responsive</h4>
-  <img src="https://github.com/user-attachments/assets/75759b01-e7ee-4448-9737-5a5a78236cbc" alt="Mobile App" width="300">
-</p>
+<table align="center">
+  <tr>
+    <td align="center">
+      <strong>Escritorio</strong><br>
+      <img src="https://github.com/user-attachments/assets/14d88eab-c7bf-4365-9c98-70e00566c588" alt="Desktop App" width="300">
+    </td>
+    <td align="center">
+      <strong>Móvil - Responsive</strong><br>
+      <img src="https://github.com/user-attachments/assets/75759b01-e7ee-4448-9737-5a5a78236cbc" alt="Mobile App" width="300">
+    </td>
+  </tr>
+</table>
 
 ## Tecnologías
 
 <p align="center">
-  <img src="https://img.shields.io/badge/PHP-777BB4?style=for-the-badge&logo=php&logoColor=white" alt="PHP" width="120">
-  <img src="https://img.shields.io/badge/Laravel-FF2D20?style=for-the-badge&logo=laravel&logoColor=white" alt="Laravel" width="120">
-  <img src="https://img.shields.io/badge/Tailwind%20CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white" alt="Tailwind CSS" width="120">
-  <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" alt="JavaScript" width="120">
-  <img src="https://img.shields.io/badge/jQuery-0769AD?style=for-the-badge&logo=jquery&logoColor=white" alt="jQuery" width="120">
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" alt="PHP" width="60" />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-original.svg" alt="Laravel" width="60" />
+  <img src="https://www.vectorlogo.zone/logos/tailwindcss/tailwindcss-icon.svg" alt="Tailwind CSS" width="60" />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" width="60" />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jquery/jquery-original.svg" alt="jQuery" width="60" />
 </p>
 
 
