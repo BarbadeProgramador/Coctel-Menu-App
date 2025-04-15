@@ -14,22 +14,20 @@
                     </p>
 
                     <div class="grid gap-4 mt-4">
-                    <button
-    id="button-section1"
-    class="menu-btn w-full bg-white border border-gray-300 text-gray-800 font-semibold py-2 rounded-lg shadow focus:bg-green-500 focus:text-white transition duration-300 ease-in-out"
-    data-section="seccion1">
-    Tu Sección
-  </button>
+                        <button id="button-section1"
+                            class="menu-btn w-full bg-white border border-gray-300 text-gray-800 font-semibold py-2 rounded-lg shadow focus:bg-green-500 focus:text-white transition duration-300 ease-in-out"
+                            data-section="seccion1">
+                            Tu Sección
+                        </button>
 
-  <!-- Botón de la segunda sección -->
-  <button
-    id="button-section2"
-    class="menu-btn w-full bg-white border border-gray-300 text-gray-800 font-semibold py-2 rounded-lg shadow focus:bg-red-500 focus:text-white transition duration-300 ease-in-out"
-    data-section="seccion2">
-    Buscar Bebidas
-  </button>
+                        <!-- Botón de la segunda sección -->
+                        <button id="button-section2"
+                            class="menu-btn w-full bg-white border border-gray-300 text-gray-800 font-semibold py-2 rounded-lg shadow focus:bg-red-500 focus:text-white transition duration-300 ease-in-out"
+                            data-section="seccion2">
+                            Buscar Bebidas
+                        </button>
                         <hr>
-                      </div>
+                    </div>
 
 
                     <form action="{{ route('download.pdf') }}" class="form-excel text-center space-x-4 my-4">
@@ -59,29 +57,33 @@
                 </div>
             </div>
 
+            @if (session('success'))
+            <div id="flash-success" data-message="{{ session('success') }}"></div>
+            @endif
+
             <!-- Contenido principal -->
             <div class="w-full flex-1 bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <p id="mensaje-vacio" class="col-span-full text-center text-gray-500 text-lg mt-10 ">
                     Agrega nuevas bebidas a tu espacio 🍹
                 </p>
                 <div id="section-content"
-                    class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 relative">
+                    class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 relative m-3">
 
                     <!-- JQUERY ADD SECTION  -->
 
+
                     <!-- MENSAJE CUANDO NO HAY TARJETAS -->
 
-                    <!-- SPINNER -->
-                   
+
+
                 </div>
             </div>
 
         </div>
-        <div id="spinner"
-        class="fixed inset-0 flex items-center justify-center bg-white bg-opacity-50 hidden ">
-        <div class="w-12 h-12 border-4 border-blue-500 border-t-transparent rounded-full animate-spin">
+        <div id="spinner" class="fixed inset-0 flex items-center justify-center bg-white bg-opacity-50 hidden ">
+            <div class="w-12 h-12 border-4 border-blue-500 border-t-transparent rounded-full animate-spin">
+            </div>
         </div>
     </div>
-        </div>
     </div>
 </x-app-layout>

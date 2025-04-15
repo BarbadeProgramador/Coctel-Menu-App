@@ -1,29 +1,66 @@
+import Swal from 'sweetalert2';
+
+
 function eliminarCoctel(id) {
-    if (confirm('¿Estás seguro de que deseas eliminar este cóctel?')) {
-        $.ajax({
-            url: `/confirmacion/delete/${id}`,
-            type: 'DELETE',
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            },
-            success: function(response) {
-                alert(response.mensaje);
-                $(`#coctel-${id}`).remove();
-            },
-            error: function(xhr) {
-                alert('Error al eliminar el cóctel');
-            }
+    Swal.fire({
+        title: '¿Estás seguro?',
+        text: "¡Esta acción no se puede deshacer!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Sí, eliminar',
+        cancelButtonText: 'Cancelar'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            $.ajax({
+                url: `/confirmacion/delete/${id}`,
+                type: 'DELETE',
+                headers: {
+                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+                },
+                success: function(response) {
+                    Swal.fire(
+                        '¡Eliminado!',
+                        response.mensaje,
+                        'success'
+                    );
+                    document.getElementById(`coctel-${id}`).remove();
+                },
+                error: function(xhr) {
+                    Swal.fire(
+                        'Error',
+                        'Error al eliminar el cóctel',
+                        'error'
+                    );
+                }
+            });
+        }
+    });
+}
+
+
+//Mensaje de Actualizacion con exito 
+document.addEventListener('DOMContentLoaded', () => {
+    const flash = document.getElementById('flash-success');
+    if (flash) {
+        const message = flash.getAttribute('data-message');
+        Swal.fire({
+            icon: 'success',
+            title: '¡Éxito!',
+            text: message,
+            confirmButtonColor: '#3085d6',
+            confirmButtonText: 'Aceptar'
         });
     }
-}
+})
 
+//Spinner ddescarga de PDF
+$(function() {
+    $('#download-pdf-btn').on('click', function(event) {
+        event.preventDefault(); // Evita el envío inmediato del formulario
 
-
-function actualizarCoctel(id) {
-    // Lógica para actualizar el cóctel, por ejemplo, redirigiendo a una página de edición
-    console.log('Actualizar cóctel con ID:', id);
-    // window.location.href = `/cocteles/${id}/edit`;
-}
-
-window.eliminarCoctel = eliminarCoctel;
-window.actualizarCoctel = actualizarCoctel;
+        // Muestra el spinner
+        $('#spinner2').removeClass('hidden');
+    });
+});

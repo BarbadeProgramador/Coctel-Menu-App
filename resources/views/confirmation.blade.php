@@ -27,37 +27,37 @@
                         </thead>
                         <tbody class="bg-white divide-y divide-gray-200">
                         @foreach ($seleccionadas as $index => $bebida)
-<tr>
-    <td class="px-4 py-2">
-        <img src="{{ $bebida['imagen'] }}" alt="{{ $bebida['nombre'] }}" class="w-16 h-16 object-cover rounded">
-        <input type="hidden" name="bebidas[{{ $index }}][imagen]" value="{{ $bebida['imagen'] }}">
-    </td>
-    <td class="px-4 py-2">
-        {{ $bebida['nombre'] }}
-        <input type="hidden" name="bebidas[{{ $index }}][nombre]" value="{{ $bebida['nombre'] }}">
-    </td>
-    <td class="px-4 py-2">
-        {{ $bebida['base'] }}
-        <input type="hidden" name="bebidas[{{ $index }}][base]" value="{{ $bebida['base'] }}">
-    </td>
-    <td class="px-4 py-2">
-        {{ $bebida['ingredientes'] }}
-        <input type="hidden" name="bebidas[{{ $index }}][ingredientes]" value="{{ $bebida['ingredientes'] }}">
-    </td>
+                        <tr>
+                            <td class="px-4 py-2">
+                                <img src="{{ $bebida['imagen'] }}" alt="{{ $bebida['nombre'] }}" class="w-16 h-16 object-cover rounded">
+                                <input type="hidden" name="bebidas[{{ $index }}][imagen]" value="{{ $bebida['imagen'] }}">
+                            </td>
+                            <td class="px-4 py-2">
+                                {{ $bebida['nombre'] }}
+                                <input type="hidden" name="bebidas[{{ $index }}][nombre]" value="{{ $bebida['nombre'] }}">
+                            </td>
+                            <td class="px-4 py-2">
+                                {{ $bebida['base'] }}
+                                <input type="hidden" name="bebidas[{{ $index }}][base]" value="{{ $bebida['base'] }}">
+                            </td>
+                            <td class="px-4 py-2">
+                                {{ $bebida['ingredientes'] }}
+                                <input type="hidden" name="bebidas[{{ $index }}][ingredientes]" value="{{ $bebida['ingredientes'] }}">
+                            </td>
 
-    <td class="px-4 py-2">
-        {{ $bebida['categoria'] }}
-        <input type="hidden" name="bebidas[{{ $index }}][categoria]" value="{{ $bebida['categoria'] }}">
-    </td>
-    <td class="px-4 py-2">
-        <input type="number" step="0.01" min="0" class="precio-input border rounded px-2 py-1 w-24" placeholder="Precio"
-            name="bebidas[{{ $index }}][precio]" require>
-    </td>
-    <td class="px-4 py-2">
-        <button type="button" class="text-red-600 hover:text-red-900 eliminar-fila">Eliminar</button>
-    </td>
-</tr>
-@endforeach
+                            <td class="px-4 py-2">
+                                {{ $bebida['categoria'] }}
+                                <input type="hidden" name="bebidas[{{ $index }}][categoria]" value="{{ $bebida['categoria'] }}">
+                            </td>
+                            <td class="px-4 py-2">
+                                <input type="number" step="0.01" min="0" class="precio-input border rounded px-2 py-1 w-24" placeholder="Precio"
+                                    name="bebidas[{{ $index }}][precio]" required>
+                            </td>
+                            <td class="px-4 py-2">
+                                <button type="button" class="text-red-600 hover:text-red-900 eliminar-fila">Eliminar</button>
+                            </td>
+                        </tr>
+                        @endforeach
 
                         </tbody>
                     </table>

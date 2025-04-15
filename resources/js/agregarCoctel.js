@@ -1,4 +1,5 @@
 import $ from 'jquery';
+import Swal from 'sweetalert2';
 
 let seleccionadas = [];
 
@@ -35,18 +36,24 @@ $(document).on('click', '.btn-agregar', function () {
 
     // Actualizar contador
     $('#contador').text(seleccionadas.length);
-
-    console.log('Seleccionadas:', seleccionadas);
 });
 
-// ✅ Registrar bebidas y almacenar en input hidden
+// ✅ Registrar bebidas
 $(function () {
-    $('#registrar').on('click', function () {
-        console.log("se ejecuto algo ");
+    $('#registrar').on('click', function (e) {
+        if (seleccionadas.length === 0) {
+            e.preventDefault(); // Evita que se envíe el formulario
+            Swal.fire({
+                icon: 'warning',
+                title: '¡Atención!',
+                text: 'Debes seleccionar al menos 1 bebida antes de registrar.',
+                confirmButtonColor: '#3085d6'
+            });
+            return;
+        }
+
         const seleccionadasJson = JSON.stringify(seleccionadas);
         $('#seleccionadas').val(seleccionadasJson);
-
-        console.log('Enviando:', seleccionadasJson); // Solo para depuración
+        console.log('Enviando:', seleccionadasJson); // Para depuración
     });
 });
-

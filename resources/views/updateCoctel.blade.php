@@ -12,19 +12,19 @@
       <!-- Nombre -->
       <div>
         <label for="nombre" class="block text-sm font-medium text-gray-700">Nombre</label>
-        <input type="text" id="nombre" name="nombre" value="{{ old('nombre', $coctel->nombre) }}" required class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2 focus:ring-blue-500 focus:border-blue-500">
+        <input type="text" id="nombre" name="nombre" value="{{ old('nombre', $coctel->nombre) }}" required class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2 focus:ring-blue-500 focus:border-blue-500" required>
       </div>
 
       <!-- Precio -->
       <div>
         <label for="precio" class="block text-sm font-medium text-gray-700">Precio</label>
-        <input type="number" id="precio" name="precio" value="{{ old('precio', $coctel->precio) }}" required class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2 focus:ring-blue-500 focus:border-blue-500">
+        <input type="number" id="precio" name="precio" value="{{ old('precio', $coctel->precio) }}" required class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2 focus:ring-blue-500 focus:border-blue-500" required>
       </div>
 
       <!-- Bebida Base -->
       <div>
         <label for="bebida" class="block text-sm font-medium text-gray-700">Bebida</label>
-        <input type="text" id="bebida" name="bebida" value="{{ old('bebida', $coctel->bebida) }}" required class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2 focus:ring-blue-500 focus:border-blue-500">
+        <input type="text" id="bebida" name="bebida" value="{{ old('bebida', $coctel->bebida) }}" required class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2 focus:ring-blue-500 focus:border-blue-500" required>
       </div>
 
       <!-- Ingredientes -->
@@ -32,7 +32,7 @@
         <label for="ingredientes" class="block text-sm font-medium text-gray-700">Ingredientes</label>
         <div class="mt-1 space-y-2">
           @foreach($coctel->ingredientes as $ingrediente)
-            <input type="text" name="ingredientes[]" value="{{ old('ingredientes.' . $loop->index, $ingrediente->nombre) }}" class="block w-full border border-gray-300 rounded-md shadow-sm p-2 focus:ring-blue-500 focus:border-blue-500">
+            <input type="text" name="ingredientes[]" value="{{ old('ingredientes.' . $loop->index, $ingrediente->nombre) }}" class="block w-full border border-gray-300 rounded-md shadow-sm p-2 focus:ring-blue-500 focus:border-blue-500" required>
           @endforeach
         </div>
       </div>
@@ -40,7 +40,7 @@
       <!-- Tipo -->
       <div>
         <label for="tipo" class="block text-sm font-medium text-gray-700">Tipo</label>
-        <input type="text" id="tipo" name="tipo" value="{{ old('tipo', $coctel->tipo) }}" required class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2 focus:ring-blue-500 focus:border-blue-500">
+        <input type="text" id="tipo" name="tipo" value="{{ old('tipo', $coctel->tipo) }}" required class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2 focus:ring-blue-500 focus:border-blue-500" required>
       </div>
 
       <!-- Botón de Actualizar -->

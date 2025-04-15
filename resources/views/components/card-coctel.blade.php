@@ -7,7 +7,7 @@
     'categoria'
 ])
 
-<div class="max-w-sm bg-white border border-gray-200 rounded-xl shadow-lg overflow-hidden flex flex-col transition duration-300 hover:shadow-lg hover:scale-105">
+<div class="max-w-sm  bg-white border border-gray-200 rounded-xl shadow-lg overflow-hidden flex flex-col transition duration-300 hover:shadow-lg hover:scale-105">
     {{-- Imagen de la bebida --}}
     <img class="w-full h-48 object-cover" src="{{ $imagen }}" alt="{{ $nombre }}">
 
@@ -27,7 +27,7 @@
     </div>
 
     {{-- Categoría y botón de agregar --}}
-    <div class="flex justify-between items-center bg-slate-50 px-4 py-3 border-t border-gray-200">
+    <div class="flex justify-between items-center h-[80px] bg-slate-50 px-4 py-3 border-t border-gray-200">
         <span class="text-xs font-medium text-gray-700 bg-gray-100 px-3 py-1 rounded-full">{{ $categoria }}</span>
 
         <button

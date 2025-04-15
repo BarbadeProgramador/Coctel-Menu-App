@@ -16,7 +16,8 @@ class PdfController extends Controller
 
         // Configuración de Dompdf
         $options = new Options();
-        $options->set('isHtml5ParserEnabled', true); // Habilitar el uso de HTML5
+        $options->set('isHtml5ParserEnabled', true); // Habilitar el uso de HTML5ç
+        $options->set('isRemoteEnabled', true);
         $options->set('isPhpEnabled', true); // Habilitar el uso de PHP en el HTML
         $dompdf = new Dompdf($options);
 
