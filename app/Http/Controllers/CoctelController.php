@@ -122,36 +122,33 @@ class CoctelController extends Controller
         return view('updateCoctel', compact('coctel'));
     }
 
-    public function update(Request $request, $id)
-    {
+    public function update(Request $request, $id){
 
+        $validatedData = $request->validate([
+            'nombre' => 'required|string|max:255',
+            'precio' => 'required|numeric',
+            'bebida' => 'required|string|max:255',
+            'tipo' => 'required|string|max:255',
+            'ingredientes' => 'required|array',
+            'ingredientes.*' => 'required|string|max:255',
+        ]);
 
-        try {
-            $coctel = Coctel::findOrFail($id);
-        } catch (Exception $e) {
-            return redirect()->back()->with('error', 'Cóctel no encontrado.');
-        }
+        $coctel = Coctel::findOrFail($id);
+        $coctel->update([
+            'nombre' => $validatedData['nombre'],
+            'precio' => $validatedData['precio'],
+            'bebida' => $validatedData['bebida'],
+            'tipo' => $validatedData['tipo'],
+        ]);
 
-        try {
-            // Actualizar los campos del cóctel
-            $coctel->update([
-                'nombre'  => $validatedData['nombre'],
-                'precio'  => $validatedData['precio'],
-                'bebida'  => $validatedData['bebida'],
-                'tipo'    => $validatedData['tipo'],
-            ]);
-
-            // Proceso de ingredientes: se adjuntan los nuevos ingredientes si no existen
-            foreach ($validatedData['ingredientes'] as $nombreIngrediente) {
-                $ingrediente = Ingredientes::firstOrCreate(['nombre' => $nombreIngrediente]);
-                if (!$coctel->ingredientes->contains($ingrediente->id)) {
-                    $coctel->ingredientes()->attach($ingrediente->id);
-                }
+        // PROCESO DE INGREDIENTES 
+        foreach ($validatedData['ingredientes'] as $nombreIngrediente) {
+            $ingrediente = Ingredientes::firstOrCreate(['nombre' => $nombreIngrediente]);
+            if (!$coctel->ingredientes->contains($ingrediente->id)) {
+                $coctel->ingredientes()->attach($ingrediente->id);
             }
-        } catch (Exception $e) {
-            Log::error('Error actualizando cóctel: ' . $e->getMessage());
-            return redirect()->back()->with('error', 'Ocurrió un error al actualizar el cóctel.');
         }
+
 
         return redirect()->route('dashboard')->with('success', 'Cóctel actualizado exitosamente.');
     }

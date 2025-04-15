@@ -50,13 +50,3 @@ $(function () {
     });
 });
 
-// Spinner de carga
-$(function() {
-    $(document).ajaxStart(function() {
-        // Mostrar el spinner cuando inicie la solicitud AJAX
-        $('#spinner').removeClass('hidden');
-    }).ajaxStop(function() {
-        // Ocultar el spinner cuando termine la solicitud AJAX
-        $('#spinner').addClass('hidden');
-    });
-});

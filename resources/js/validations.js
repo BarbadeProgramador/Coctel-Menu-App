@@ -8,7 +8,6 @@ function eliminarCoctel(id) {
             },
             success: function(response) {
                 alert(response.mensaje);
-                // Eliminar la tarjeta del DOM
                 $(`#coctel-${id}`).remove();
             },
             error: function(xhr) {
