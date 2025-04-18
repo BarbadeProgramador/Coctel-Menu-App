@@ -23,7 +23,7 @@ $(document).on('click', '.btn-agregar', function () {
         seleccionadas.push(bebida);
         $btn
             .html('✅ Agregado')
-            .addClass('bg-green-100 text-green-700 border-green-400')
+            .addClass('bg-green-100  border-green-400')
             .removeClass('hover:bg-gray-100');
     } else {
         // Quitar bebida
@@ -42,7 +42,7 @@ $(document).on('click', '.btn-agregar', function () {
 $(function () {
     $('#registrar').on('click', function (e) {
         if (seleccionadas.length === 0) {
-            e.preventDefault(); // Evita que se envíe el formulario
+            e.preventDefault(); 
             Swal.fire({
                 icon: 'warning',
                 title: '¡Atención!',

@@ -19,7 +19,7 @@
             <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
             </svg>
-            <span class="font-medium text-pink-600">Bebida:</span>&nbsp;{{ $base }}
+            <span class="font-medium text-justify text-pink-600">Bebida:</span>&nbsp;{{ $base }}
         </p>
 
         <p class="text-sm mt-2 font-semibold text-gray-700">Ingredientes:</p>
@@ -28,10 +28,10 @@
 
     {{-- Categoría y botón de agregar --}}
     <div class="flex justify-between items-center h-[80px] bg-slate-50 px-4 py-3 border-t border-gray-200">
-        <span class="text-xs font-medium text-gray-700 bg-gray-100 px-3 py-1 rounded-full">{{ $categoria }}</span>
+        <span class="text-xs font-medium text-gray-700  px-3 w-16  py-1 rounded-full"><strong>{{ $categoria }}</strong></span>
 
         <button
-            class="btn-agregar seleccionar-btn text-xs font-semibold px-3 py-1 border border-gray-300 rounded-full text-gray-700 hover:bg-gray-100 transition"
+            class="btn-agregar seleccionar-btn text-xs w-20  font-semibold  py-1 border border-gray-300 rounded-full text-gray-700 hover:bg-gray-100 transition"
             data-nombre="{{ $nombre }}"
             data-imagen="{{ $imagen }}"
             data-base="{{ $base }}"

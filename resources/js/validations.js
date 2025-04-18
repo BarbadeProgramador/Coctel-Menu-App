@@ -1,7 +1,7 @@
 import Swal from 'sweetalert2';
+import $ from 'jquery';
 
-
-function eliminarCoctel(id) {
+export function eliminarCoctel(id) {
     Swal.fire({
         title: '¿Estás seguro?',
         text: "¡Esta acción no se puede deshacer!",
@@ -41,7 +41,8 @@ function eliminarCoctel(id) {
 
 
 //Mensaje de Actualizacion con exito 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', (e) => {
+    e.preventDefault();
     const flash = document.getElementById('flash-success');
     if (flash) {
         const message = flash.getAttribute('data-message');
@@ -55,12 +56,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 })
 
-//Spinner ddescarga de PDF
-$(function() {
-    $('#download-pdf-btn').on('click', function(event) {
-        event.preventDefault(); // Evita el envío inmediato del formulario
 
-        // Muestra el spinner
-        $('#spinner2').removeClass('hidden');
-    });
-});
+
+window.eliminarCoctel = eliminarCoctel;

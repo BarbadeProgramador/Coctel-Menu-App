@@ -23,13 +23,9 @@
       border: 1px solid #ccc;
       padding: 10px;
       border-radius: 5px;
+      height: 190px;
     }
-    .card img {
-      width: 100%;
-      height: auto;
-      max-height: 180px;
-      object-fit: cover;
-    }
+
     .name {
       font-weight: bold;
       margin: 10px 0 5px;
@@ -55,7 +51,7 @@
       @foreach($cocteles as $index => $coctel)
         <td>
           <div class="card">
-            <img src="{{ $coctel['img'] }}">
+            <img src="">
             <div class="name">{{ $coctel['nombre'] }}</div>
             <div class="info"><strong>Bebida:</strong> {{ $coctel['bebida'] }}</div>
             <div class="info"><strong>Ingredientes:</strong>
